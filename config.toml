@@ -1,4 +1,4 @@
 baseURL = "http://izzy.sh/"
 languageCode = "en-us"
-title = "Izzy's Blog"
-theme = "shell"
+title = "izzy.sh"
+theme = "gemini"
