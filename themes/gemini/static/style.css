@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-html,
-body
+html
 {
 	margin: 0;
 	padding: 0;
+}
+
+body
+{
+	margin: 0 auto;
+	padding 0;
+
+	max-width: 84ch;
+	font-family: "IBM Plex Serif", serif;
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: "Fira Code", monospace;
+}
+
+#content
+{
+	height: 100%
 }
