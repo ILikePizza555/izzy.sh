@@ -21,6 +21,23 @@ h1, h2, h3, h4, h5, h6
 	font-family: "Fira Code", monospace;
 }
 
+ul
+{
+	list-style-type: "\2014";
+}
+
+li
+{
+	padding-left: 1em;
+}
+
+blockquote
+{
+	margin: 0.9em 0;
+	padding: 0.1em 40px;
+	background: #e8e5f2;
+}
+
 #content
 {
 	height: 100%
