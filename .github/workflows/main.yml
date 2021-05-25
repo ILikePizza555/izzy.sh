@@ -33,7 +33,11 @@ jobs:
       - name: Build with Nix
         run: nix-build
       
+      # Copy the symlink to nix-store to a directory because upload build artifacts can't follow symbolic links
+      - name: Copy nix result
+        run: cp -R -v result/ artifacts/
+      
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2.2.3
         with:
-          path: result/**/*
+          path: artifacts
