@@ -35,9 +35,16 @@ jobs:
       
       # Copy the symlink to nix-store to a directory because upload build artifacts can't follow symbolic links
       - name: Copy nix result
-        run: cp -R -v result/ artifacts/
+        run: cp -R -v result/ artifact/
       
-      - name: Upload build artifacts
+      - name: Upload build artifact
         uses: actions/upload-artifact@v2.2.3
         with:
-          path: artifacts
+          path: artifact
+          
+      - name: Publish to Github Pages
+        uses: crazy-max/ghaction-github-pages@v2.4.1
+        with:
+          build_dir: artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
