@@ -1,7 +1,7 @@
 <footer>
 	<hr />
-	Last modified on {{ .Lastmod }}.
+	<p>Last modified on {{ .Lastmod }}.</p>
 	{{ if .GitInfo }}
-		Commit {{ .GitInfo.Hash }}: {{ .GitInfo.Subject }}
+		<p>Commit {{ .GitInfo.Hash }}: {{ .GitInfo.Subject }}</p>
 	{{ end }}
 </footer>
