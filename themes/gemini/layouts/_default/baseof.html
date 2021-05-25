@@ -3,8 +3,10 @@
     {{- partial "head.html" . -}}
     <body>
 		<header>
-			<h1><a href="/">{{.Site.Title}}</a></h1>
-			{{- block "header" . -}}{{- end }}
+			<h1>{{.Site.Title}}</h1>
+			{{ if not .IsHome }}
+			<a href="/">&#x2190 Back To Home</a>
+			{{ end }}
 		</header>
         <div id="content">
         {{- block "main" . }}{{- end }}
