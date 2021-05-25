@@ -41,10 +41,3 @@ jobs:
         uses: actions/upload-artifact@v2.2.3
         with:
           path: artifact
-          
-      - name: Publish to Github Pages
-        uses: crazy-max/ghaction-github-pages@v2.4.1
-        with:
-          build_dir: artifact
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
