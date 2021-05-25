@@ -2,3 +2,5 @@ baseURL = "http://izzy.sh/"
 languageCode = "en-us"
 title = "izzy.sh"
 theme = "gemini"
+
+enableGitInfo = true
