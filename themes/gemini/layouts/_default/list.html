@@ -1,21 +1,19 @@
 {{ define "main" }}
-	<main aria-role="main">
-		{{ if .Content }}
-			<article>
-				{{ .Content }}
-			</article>
-		{{ end }}
+	{{ if .Content }}
 		<article>
-			<h2>All Posts</h2>
-			<ul class="link-list">
-			{{ range .Site.RegularPages }}
-					<li>	
-						<a href="{{ .RelPermalink }}">{{ .Title }}</a>
-						<br />
-						Published <time>{{ .PublishDate }}</time>
-					</li>
-			{{ end }}
-			</ul>
+			{{ .Content }}
 		</article>
-	</main>
+	{{ end }}
+	<article>
+		<h2>All Posts</h2>
+		<ul class="link-list">
+		{{ range .Site.RegularPages }}
+				<li>	
+					<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+					<br />
+					Published <time>{{ .PublishDate }}</time>
+				</li>
+		{{ end }}
+		</ul>
+	</article>
 {{ end }}
