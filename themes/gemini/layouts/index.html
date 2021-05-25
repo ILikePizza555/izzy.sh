@@ -7,7 +7,7 @@
 			<h2>All Posts</h2>
 			{{ range first 10 .Site.RegularPages }}
 				<ul>
-					<li> [{{ .PublishDate }}] - <a href="{{ .Ref }}">{{ .Title }}</a></li>
+					<li> [{{ .PublishDate }}] - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
 				</ul>
 			{{ end }}
 		</article>
