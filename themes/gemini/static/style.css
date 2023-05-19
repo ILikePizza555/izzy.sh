@@ -43,3 +43,7 @@ blockquote
 	height: 100%
 }
 
+#content img
+{
+	width: 100%
+}
