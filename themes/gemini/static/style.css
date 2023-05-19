@@ -9,7 +9,7 @@ html
 body
 {
 	margin: 0 auto;
-	padding 0;
+	padding: 0;
 
 	max-width: 84ch;
 	font-family: "IBM Plex Serif", serif;
@@ -40,10 +40,11 @@ blockquote
 
 #content
 {
-	height: 100%
+	height: 100%;
 }
 
 #content img
 {
-	width: 100%
+	width: 100%;
+	height: auto;
 }
