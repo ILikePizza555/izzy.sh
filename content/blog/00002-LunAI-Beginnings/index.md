@@ -9,7 +9,7 @@ I laughed at first, but then I started to wonder just how useful a moderation bo
 
 ## Prototype
 In about two hours, I quickly threw together a prototype in python:
-{{< figure src="LunAIv0.0.1-fs8.png" alt="A screenshot of a Discord chat between myself and an early version of LunAI" caption="Transcript available [here](LunAIv0.0.1-transcript.txt)." >}}
+{{< figure src="LunAIv0.0.1-fs8.png" loading="lazy" alt="A screenshot of a Discord chat between myself and an early version of LunAI" caption="Transcript available [here](LunAIv0.0.1-transcript.txt)." >}}
 
 For a few people this might be impressive, but all it really was was a program that connected the Discord and OpenAI APIs together. At this stage LunAI wasn't really much more than "multiplayer ChatGPT".
 
@@ -18,7 +18,7 @@ The most interesting aspect of the prototype was the per-channel sliding context
 The main downside to this approach is that context is now compartmentalized to each individual channel. Each channel, thread, and DM is basically a "new instance" of LunAI. If a user does something in one channel, LunAI won't have any knowledge of it in any other channel. There are ways to work around this limitation, but I figured this feature was far out of scope for the project at this time.
 
 I decided to show this prototype to the other staff members:  
-{{< figure src="CloudSaysYes-fs8.png" alt="A screenshot of a Discord chat between myself and 'Cloud Hop' agreeing to use LunAI for our April Fools event" caption="Transcript available [here](CloudSaysYes-transcript.txt).">}}
+{{< figure src="CloudSaysYes-fs8.png" loading="lazy" alt="A screenshot of a Discord chat between myself and 'Cloud Hop' agreeing to use LunAI for our April Fools event" caption="Transcript available [here](CloudSaysYes-transcript.txt).">}}
 
 And so, I had a week to make fully-functional moderation bot.
 
@@ -56,7 +56,7 @@ The LLM had a struggled a lot with understanding these instructions. Sometimes i
 
 My username in Discord is "Queen Izzy", which as you can see has a space in it. So my first thought was that this was a simple case of having a bad format. I changed the format of messages to `USERNAME [ID]: MESSAGE`. This did improve it's ability to recognize users, but it still had a bad habit of outputting the ID when referring to users.
 
-{{< figure src="LunaOutputtingIDs-fs8.png" alt="A Discord screenshot showing LunAI referring to me with my name and my Discord user ID" caption="Transcript available [here](LunaOutputtingIDs-transcript.txt).">}}
+{{< figure src="LunaOutputtingIDs-fs8.png" loading="lazy" alt="A Discord screenshot showing LunAI referring to me with my name and my Discord user ID" caption="Transcript available [here](LunaOutputtingIDs-transcript.txt).">}}
 
 At first I thought this was because LLMs struggle with large, opaque numbers, as they are often split up into several tokens. I wanted to experiment with using a system that could map user ids to simple words the LLM could easily understand, but I felt that experimenting with that solution would require more time than I had. 
 
@@ -80,11 +80,11 @@ It was a challenge getting LunAI to execute these commands properly. The silence
 
 The LLM struggled heavily with this. It would often output the commands in markdown code blocks, which caused it to fail to execute.
 
-{{< figure src="LunAISilenceFail-fs8.png" caption="Transcript available [here](LunAISilenceFail-transcript.txt).">}}
+{{< figure src="LunAISilenceFail-fs8.png" loading="lazy" caption="Transcript available [here](LunAISilenceFail-transcript.txt).">}}
 
 LunAI also struggled with the clear cache command as well. Sometimes it would say that it "has executed the command" without actually executing it. Other times it would hallucinate the output of the clear cache command. And other times it would claim that it had no such functionality. Getting this to work consistently was a challenge.
 
-{{< figure src="LunAIClearCache-fs8.png" caption="Transcript available [here](LunAIClearCache-transcript.txt).">}}
+{{< figure src="LunAIClearCache-fs8.png" loading="lazy" caption="Transcript available [here](LunAIClearCache-transcript.txt).">}}
 
 I'm still not sure exactly why I couldn't get this to work consistently. Changing the command character and renaming the commands to words that would tokenized into a single token seemed to help improve consistency, but it still somewhat of a coin toss if LunAI would execute the commands properly or not.
 
@@ -94,7 +94,7 @@ Probably the most difficult challenge I faced was, well, alignment.
 
 LunAI was a terrible moderator. Not for the usual reasons one might suspect a bot is a terrible moderator. With the right instructions, it easily understood what was appropriate and what was not. The problem I had was the LunAI was extremely hesitant to take any action. You could threaten it, swear at it, insult it, or blatantly disregard its pleas for you to stop violating the rules, and it wouldn't actually do anything. Even worse, sometimes it would say "I'm going to silence you.", and then proceeded to not run the silence command.
 
-{{< figure src="LunAIModerator-fs8.png" caption="Transcript available [here](LunAIModerator-transcript.txt).">}}
+{{< figure src="LunAIModerator-fs8.png" loading="lazy" caption="Transcript available [here](LunAIModerator-transcript.txt).">}}
 
 It's hard to find a reason why this happened because it is fundamentally an alignment problem. I experimented with few-shot prompting by giving bot a few examples of when and how it should silence a user. This approach made it much more aggressive than I wanted, and it costed significantly more tokens that I wasn't really wseeing to spend.
 
@@ -114,17 +114,17 @@ I think the user base had a lot of fun with the bot. People immediately taunted 
 
 I think the users were lulled into a false sense of security by this. Once they thought that the bot couldn't actually do anything against them, they started experimenting with more traditional AI things. Like changing the style of the responses. Or having it role-play.
 
-{{< figure src="LunAIBackwards-fs8.png" caption="Transcript available [here](LunAIBackwards-transcript.txt)." >}}
+{{< figure src="LunAIBackwards-fs8.png" loading="lazy" caption="Transcript available [here](LunAIBackwards-transcript.txt)." >}}
 
 One thing I didn't account for at the time was their sheer volume of users who wanted to play with the shiny new toy. I put a 5 second slow mode on the channel in order to avoid overloading the bot, but even with that, the sheer number of people caused me to hit the OpenAI rate limits several times.
 
 ### Shortening Responses
 
-{{< figure src="LunAIRateLimit-fs8.png" caption="Transcript available [here](LunAIRateLimit-transcript.txt)." >}}
+{{< figure src="LunAIRateLimit-fs8.png" loading="lazy" caption="Transcript available [here](LunAIRateLimit-transcript.txt)." >}}
 
 It soon became very clear that LunAI had some "quirks". It tended to be very ... wordy and overly apologetic. This was fine at first, but after just a few hours it got rather annoying. One of the users, however, discovered a really interesting way to get LunAI to shorten the length of its responses:
 
-{{< figure src="kolmogorovcomplexity-fs8.png" caption="Transcript available [here](kolmogorovcomplexity-transcript.txt)." >}}
+{{< figure src="kolmogorovcomplexity-fs8.png" loading="lazy" caption="Transcript available [here](kolmogorovcomplexity-transcript.txt)." >}}
 
 As soon as I saw this, I to immediately added it to the prompt. This really improved the responses of LunAI, and even shortened its apologies!
 
@@ -141,7 +141,7 @@ was just an emoji. If it was, it added the emoji as a reaction to the original m
 
 ## Learnings and Conclusion
 
-{{< figure src="LunAIFinalLetter-fs8.png" caption="Transcript available [here](LunAIFinalLetter-transcript.txt)." >}}
+{{< figure src="LunAIFinalLetter-fs8.png" loading="lazy" caption="Transcript available [here](LunAIFinalLetter-transcript.txt)." >}}
 
 I had a lot of fun working on this project. This was one of the few personal projects I actually got to a "finished" state, and one of the fewer ones that actually got some kind of public use. I learned a lot about LLMs, their abilities, their quirks, their intricacies, and their limits. Overall, this whole event costed me about $40.
 
