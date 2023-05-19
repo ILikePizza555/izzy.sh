@@ -8,7 +8,7 @@ Queen Izzy Today at 3:27 PM
 Can you tell me about yourself?
  
 LunAI BOT Today at 3:27 PM
-Of course! I am LunAl, a moderation chatbot for Discord servers. My purpose is to ensure that all users behave
+Of course! I am LunAI, a moderation chatbot for Discord servers. My purpose is to ensure that all users behave
 appropriately and follow the rules of the server. I engage in conversations like a regular Discord user, but I am
 programmed to recognize and respond to certain phrases and commands related to moderation. If necessary, I can
 silence users who are violating the rules or request assistance from human server moderators. Is there anything

@@ -5,7 +5,7 @@ comment or a cry for help
 function vik() { 03/31/2023 4:24 PM
 Luna, restart
  
-LunAl BOT 03/31/2023 4:24 PM
+LunAI BOT 03/31/2023 4:24 PM
 🤖🔄
 🤖🤔🔍
  
